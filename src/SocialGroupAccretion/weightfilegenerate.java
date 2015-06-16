@@ -14,9 +14,9 @@ public class weightfilegenerate {
     
     public static void main(String[] args) throws IOException {
         
-        String CollabSparsetuples = "/home/enigmatus/Incremental/Incremental Work/resources/tr(2001-07)test(08-10)/collab_sparse_tuples_out.txt";
-        String CollabTime = "/home/enigmatus/Incremental/Incremental Work/resources/tr(2001-07)test(08-10)/collab_time_out.txt";
-        String weightfile = "/home/enigmatus/Incremental/Incremental Work/resources/tr(2001-07)test(08-10)/collab_weighttrain.txt";
+        String CollabSparsetuples = "./resources/tr(2001-07)test(08-10)/collab_sparse_tuples_out.txt";
+        String CollabTime = "./resources/tr(2001-07)test(08-10)/collab_time_out.txt";
+        String weightfile = "./resources/tr(2001-07)test(08-10)/collab_weighttrain.txt";
         int split = 2007;
         
         BufferedReader tuples = new BufferedReader(new FileReader(CollabSparsetuples));

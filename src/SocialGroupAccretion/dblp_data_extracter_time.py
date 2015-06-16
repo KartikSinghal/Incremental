@@ -49,7 +49,7 @@ def dblp_data_extracter (file_type, year_r1, year_r2, test_buf, num_of_authors):
     last = datetime.datetime.now();
     
     # CHANGE this path to the place where the DBLP (v5-v6) data is .... 
-    f = (open('/media/enigmatus/C85ACC635ACC503C/Users/Kartik/Downloads/DBLP_mains/DBLP_citation_Sep_2013/acm_output.txt', 'r'));
+    f = (open('acm_output.txt', 'r'));
     #f = (open('test.txt', 'r'));
     f.readline();
     count_line = 0;pointer=0;
@@ -159,11 +159,11 @@ def dblp_data_extracter (file_type, year_r1, year_r2, test_buf, num_of_authors):
     
     print('-------- Writing Collaboration Sparse Matrix, Weight & Time List ------------');
     #print (collab_dict);
-    output_file = '/home/enigmatus/Incremental/Incremental Work/resources/collab_sparse_tuples_out1991-1998-2000.txt';
+    output_file = './resources/collab_sparse_tuples_out1991-1998-2000.txt';
     fc = open(output_file, 'w');
-    output_file = '/home/enigmatus/Incremental/Incremental Work/resources/collab_weight_out1991-1998-2000.txt';
+    output_file = './resources/collab_weight_out1991-1998-2000.txt';
     fw = open(output_file, 'w');
-    output_file = '/home/enigmatus/Incremental/Incremental Work/resources/collab_time_out1991-1998-2000.txt';
+    output_file = './resources/collab_time_out1991-1998-2000.txt';
     ft = open(output_file, 'w');
     collab_count = 0;
     

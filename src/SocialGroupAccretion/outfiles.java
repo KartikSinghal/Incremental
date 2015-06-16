@@ -27,15 +27,15 @@ public class outfiles {
 		    	 BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
 		 	    
 		    	 
-		    	 String csvFile1 = "/home/enigmatus/Incremental/Incremental Work/resources/tr(2001-07)test(08-10)/collab_sparse_tuples_out.txt";
-		    	 String csvFile2 = "/home/enigmatus/Incremental/Incremental Work/resources/tr(2001-07)test(08-10)/collab_time_out.txt";
+		    	 String csvFile1 = "./resources/tr(2001-07)test(08-10)/collab_sparse_tuples_out.txt";
+		    	 String csvFile2 = "./resources/tr(2001-07)test(08-10)/collab_time_out.txt";
 		    	
 		    	 //BufferedReader to read csv files
 		    	 //FileWriter f0 = new FileWriter("C:\\Users\\Kartik\\Downloads\\DBLP_citation_Sep_2013\\New\\train_output.txt");
 		    	 //BufferedWriter out = new BufferedWriter(f0);
-		    	 FileWriter f1 = new FileWriter("/home/enigmatus/Incremental/Incremental Work/resources/tr(2001-07)test(08-10)/trainnew.txt");
+		    	 FileWriter f1 = new FileWriter("./resources/tr(2001-07)test(08-10)/trainnew.txt");
 		    	 BufferedWriter out1 = new BufferedWriter(f1);
-		    	 FileWriter f2 = new FileWriter("/home/enigmatus/Incremental/Incremental Work/resources/tr(2001-07)test(08-10)/testnew.txt");
+		    	 FileWriter f2 = new FileWriter("./resources/tr(2001-07)test(08-10)/testnew.txt");
 		    	 BufferedWriter out2 = new BufferedWriter(f2);
 		    	 BufferedReader br1 = new BufferedReader(new FileReader(csvFile1));
 		    	 BufferedReader br2= new BufferedReader(new FileReader(csvFile2));
