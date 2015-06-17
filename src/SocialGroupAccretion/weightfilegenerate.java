@@ -6,6 +6,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -14,35 +15,19 @@ public class weightfilegenerate {
     
     public static void main(String[] args) throws IOException {
         
-        String CollabSparsetuples = "./resources/tr(2001-07)test(08-10)/collab_sparse_tuples_out.txt";
-        String CollabTime = "./resources/tr(2001-07)test(08-10)/collab_time_out.txt";
-        String weightfile = "./resources/tr(2001-07)test(08-10)/collab_weighttrain.txt";
-        int split = 2007;
+        String CollabSparsetuples = "./resources/boundary_2005/train_2003-2005 test_2006-2009/collab_sparse_tuples_out.txt";
+        String CollabTime = "./resources/boundary_2005/train_2003-2005 test_2006-2009/collab_time_out.txt";
+        String weightfile = "./resources/boundary_2005/train_2003-2005 test_2006-2009/collab_weighttrain.txt";
+        int split = 2005;
         
         BufferedReader tuples = new BufferedReader(new FileReader(CollabSparsetuples));
         BufferedReader time = new BufferedReader(new FileReader(CollabTime));
         BufferedWriter out = new BufferedWriter (new FileWriter(weightfile));
         
-        new weightfiletrain(tuples,time,out,split);
+        weightfiletrain weightfiletrain = new weightfiletrain(tuples,time,out,split);
+        BufferedReader time1 = new BufferedReader(new FileReader(CollabTime));
+        new traintestfilesgenerate(time1,split);
     }
-}
-
-class Hyperedgedatastruct{
-    int count;
-    int vertices;
-    int index;
-    public Hyperedgedatastruct(int index){
-     this.count=0;
-     this.vertices=0;
-     this.index=index;
-    }
-    public int getCount(){return this.count;}
-    public int getVertices(){return this.vertices;}
-    public int getIndex(){return this.index;}
-    
-    public void setCount(int count){this.count=count;}
-    public void setVertices(int vertices){this.vertices=vertices;}
-    public void setIndex(int index){this.index=index;}
 }
 
 class weightfiletrain{
@@ -62,7 +47,8 @@ class weightfiletrain{
             weight=Math.log(ed.getCount() + 1)/ed.getVertices();
             out.write(String.valueOf(index)+","+String.valueOf(ed.getCount())+","+String.valueOf(ed.getVertices()+","+String.valueOf(weight)));
             out.newLine();
-        }   
+        }
+        out.close();
     }
     
     public void updateedgecount(BufferedReader time, int split) throws IOException{
@@ -72,7 +58,6 @@ class weightfiletrain{
             int index=Integer.parseInt(st.nextToken());
             int year = Integer.parseInt(st.nextToken());
             if(year<=split){
-                System.out.println(index+" "+year);
                 if(this.hyperedgedatalist.containsKey(index)){
                     this.hyperedgedatalist.get(index).setCount(this.hyperedgedatalist.get(index).getCount()+1);
                 }
@@ -96,5 +81,6 @@ class weightfiletrain{
         }
     }
     
+    public Map<Integer, Hyperedgedatastruct> getList(){return this.hyperedgedatalist;}
     
 }

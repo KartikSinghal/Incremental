@@ -30,10 +30,8 @@ public class outfiles {
 		    	 String csvFile1 = "./resources/tr(2001-07)test(08-10)/collab_sparse_tuples_out.txt";
 		    	 String csvFile2 = "./resources/tr(2001-07)test(08-10)/collab_time_out.txt";
 		    	
-		    	 //BufferedReader to read csv files
-		    	 //FileWriter f0 = new FileWriter("C:\\Users\\Kartik\\Downloads\\DBLP_citation_Sep_2013\\New\\train_output.txt");
-		    	 //BufferedWriter out = new BufferedWriter(f0);
-		    	 FileWriter f1 = new FileWriter("./resources/tr(2001-07)test(08-10)/trainnew.txt");
+		    	 int split=2007;
+                         FileWriter f1 = new FileWriter("./resources/tr(2001-07)test(08-10)/trainnew.txt");
 		    	 BufferedWriter out1 = new BufferedWriter(f1);
 		    	 FileWriter f2 = new FileWriter("./resources/tr(2001-07)test(08-10)/testnew.txt");
 		    	 BufferedWriter out2 = new BufferedWriter(f2);
@@ -61,7 +59,7 @@ public class outfiles {
                                  
                                  
 		    		 /////***Change the year here***/////
-		    		 if(Integer.parseInt(value)<=2007){
+		    		 if(Integer.parseInt(value)<=split){
 		    			 train.put(Integer.parseInt(key), 1);
 		    		 }
 		    		 else
